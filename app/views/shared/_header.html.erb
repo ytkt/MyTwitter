@@ -3,6 +3,9 @@
 	<a class="brand" href="#">Twitter</a>
 	<ul class="nav">
 	  <li class="active"><a href="#">Home</a></li>
+	  <% if current_user %>
+	  <li><a href="#"><%= current_user.email %></a><li>
+	  <% end %>
 	</ul>
   </div>
 </div>
