@@ -13,7 +13,9 @@
   <div class="row-fluid">
 	<div class="span4">
 	  <!--Sidebar content-->
+	  <% if current_user %>
 	  <%= render '/tweets/form' %>
+	  <% end %>
 	</div>
 	<div class="span8">
 	  <!--Body content-->
