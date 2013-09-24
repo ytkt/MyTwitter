@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -8,4 +9,17 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :omniauthable, :rememberable
 
   has_many :tweets
+
+
+  # self. というのはクラスメソッドを表す
+  def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    unless user
+      user = User.create(name: auth.extra.raw_info.name,
+                         provider: auth.provider,
+                         uid: auth.uid
+                         )
+    end
+    user
+  end
 end
