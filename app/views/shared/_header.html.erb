@@ -8,6 +8,8 @@
 	<ul class="nav pull-right">
 	  <% if current_user %>
 	  <li><a href="#"><%= current_user.email %></a><li>
+	  <% else %>
+	  <li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
 	  <% end %>
 	</ul>
   </div>
