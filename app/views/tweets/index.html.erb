@@ -1,12 +1,7 @@
-<table>
-  <tbody>
-    <% @tweets.each do |tweet| %>
-      <tr>
-        <td><%= tweet.body %></td>
-        <td><%= link_to 'Show', tweet %></td>
-        <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td>posted by <%= tweet.user.name %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul class="tweets">
+  <% @tweets.each do |tweet| %>
+  <li>
+	<%= render 'tweet', :tweet => tweet %>
+  </li>
+  <% end %>
+</ul>
