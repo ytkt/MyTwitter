@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :omniauthable, :rememberable
 
   has_many :tweets
+  has_many :friendships
+  has_many :friends, :through => :friendships
 
 
   # self. というのはクラスメソッドを表す

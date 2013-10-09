@@ -1,4 +1,16 @@
 Twitter::Application.routes.draw do
+#  get "home/account_info"
+#  get "home/:id/account_info"
+
+  resources :home, :only => [] do
+    collection do
+      get "account_info"
+    end
+    member do
+      get "account"
+    end
+  end
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :tweets
   root 'tweets#index'
