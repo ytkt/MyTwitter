@@ -51,3 +51,6 @@ gem 'devise'
 
 gem 'omniauth'
 gem 'omniauth-twitter'
+
+# for heroku
+gem 'rails_12factor', group: :production
