@@ -1,4 +1,5 @@
 Twitter::Application.routes.draw do
+#  get "users/show"
 #  get "home/account_info"
 #  get "home/:id/account_info"
 
@@ -9,6 +10,9 @@ Twitter::Application.routes.draw do
     member do
       get "account"
     end
+  end
+
+  resources :users, only: ['show'] do
   end
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

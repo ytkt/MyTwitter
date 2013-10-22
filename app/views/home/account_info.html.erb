@@ -1,11 +1,1 @@
-<p>名前: <%= current_user.name %></p>
-<p>email: <%= current_user.email %></p>
-<p>登録日: <%= current_user.created_at %></p>
-
-<h2>Friends</h2>
-<ul>
-<% current_user.friends.each do |friend| %>
-  <li><%= friend.name %></li>
-<% end %>
-</ul>
-
+<%= render '/users/info', user: current_user %>
