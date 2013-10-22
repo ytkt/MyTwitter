@@ -19,8 +19,8 @@ class User < ActiveRecord::Base
     unless user
       user = User.create(name: auth.extra.raw_info.name,
                          provider: auth.provider,
-                         uid: auth.uid
-                         )
+                         uid: auth.uid,
+                         email: "#{auth.uid}@example.com")
     end
     user
   end
