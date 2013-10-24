@@ -1,4 +1,5 @@
 Twitter::Application.routes.draw do
+#  get "users/show"
 #  get "home/account_info"
 #  get "home/:id/account_info"
 
@@ -14,6 +15,10 @@ Twitter::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :tweets
   root 'tweets#index'
+
+  resources :users, only: ['show'] do
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

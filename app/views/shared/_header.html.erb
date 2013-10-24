@@ -3,6 +3,9 @@
 	<a class="brand" href="#">Twitter</a>
 	<ul class="nav">
 	  <li class="active"><a href="#">Home</a></li>
+	  <% if current_user %>
+	  <li><%= link_to 'Info', controller: 'home', action: 'account_info' %></li>
+	  <% end %>
 	</ul>
 
 	<ul class="nav pull-right">
